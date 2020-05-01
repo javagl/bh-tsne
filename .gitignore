@@ -1,0 +1,14 @@
+/.project
+/.settings
+/bh-tsne/target
+/bh-tsne/.classpath
+/bh-tsne/.project
+/bh-tsne/.settings
+/bh-tsne-demo/target
+/bh-tsne-demo/.classpath
+/bh-tsne-demo/.project
+/bh-tsne-demo/.settings
+/bh-tsne-demo/src/main/resources/data/training-5000-with-500-from-each-normalized.arff.gz
+/bh-tsne-demo/src/main/resources/data/training-10000-with-1000-from-each-normalized.arff.gz
+/bh-tsne-demo/src/main/resources/data/training-25000-with-2500-from-each-normalized.arff.gz
+/bh-tsne-demo/src/main/resources/data/training-50000-with-5000-from-each-normalized.arff.gz
