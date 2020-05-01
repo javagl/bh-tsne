@@ -50,7 +50,7 @@ The project consists of two modules:
 
 - Removed unnecessary dependencies (for example, JAMA was used for a 
   single line of code that *was not called at all*). Specifcially:
-  Remvoved *all* dependencies except for the one to EJML, which 
+  Removed *all* dependencies except for the one to EJML, which 
   has been replaced with the proper one in its latest available
   version.
  
