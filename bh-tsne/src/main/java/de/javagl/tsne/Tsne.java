@@ -61,7 +61,7 @@ public final class Tsne
      * The {@link #setPerplexity(double) perplexity} will be 20.0.<br>
      * The {@link #setTheta(double) theta} will be 0.5.<br>
      * The {@link #setInitialDims(int) initial dimensions} will be 55.<br>
-     * The {@link #setRandomSeed(int) random seed} will be 0.<br>
+     * The {@link #setRandomSeed(long) random seed} will be 0.<br>
      * <br>
      * Messages will be written to the standard output. To disable the output, 
      * call {@link #setMessageConsumer(Consumer) setMessageConsumer(null)}.
