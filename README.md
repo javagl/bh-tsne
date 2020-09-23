@@ -9,12 +9,10 @@ See [LICENSE.md](LICENSE.md) for further information!
 
 ## Maven coordinates:
 
-**TODO** The library will soon be available at 
-
     <dependency>
         <groupId>de.javagl</groupId>
         <artifactId>bh-tsne</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </dependency>
 
 
@@ -70,7 +68,7 @@ The project consists of two modules:
 - Offered the whole functionality in a single public class, with some
   basic JavaDoc
   
-- TODO Offered the library in Maven Central
+- Offered the library in Maven Central
   
 
   

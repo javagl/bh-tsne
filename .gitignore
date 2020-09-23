@@ -12,3 +12,4 @@
 /bh-tsne-demo/src/main/resources/data/training-10000-with-1000-from-each-normalized.arff.gz
 /bh-tsne-demo/src/main/resources/data/training-25000-with-2500-from-each-normalized.arff.gz
 /bh-tsne-demo/src/main/resources/data/training-50000-with-5000-from-each-normalized.arff.gz
+/target
