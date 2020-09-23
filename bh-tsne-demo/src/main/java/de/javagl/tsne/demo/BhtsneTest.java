@@ -6,7 +6,6 @@
 package de.javagl.tsne.demo;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
 import de.javagl.tsne.Tsne;
@@ -24,7 +23,7 @@ public class BhtsneTest
 
     private static void testSimple() throws IOException
     {
-        TsneData tsneData = WekaUtils.read(Paths.get(fileName));
+        TsneData tsneData = WekaUtils.readFile(fileName);
         Tsne tsne = new Tsne();
         double[][] Y = tsne.run(tsneData.getData());
 

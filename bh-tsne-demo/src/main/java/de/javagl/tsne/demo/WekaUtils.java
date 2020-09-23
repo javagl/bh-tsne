@@ -5,11 +5,12 @@
  */ 
 package de.javagl.tsne.demo;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
 
 import weka.core.Attribute;
 import weka.core.Instance;
@@ -22,30 +23,67 @@ import weka.core.converters.ArffLoader;
 class WekaUtils
 {
     /**
-     * Read the {@link TsneData} from the given file
+     * Read the {@link TsneData} from the specified file
      * 
-     * @param inputFile The input file
+     * @param name The file name
      * @return The data
      * @throws IOException If an IO error occurs
      */
-    static TsneData read(Path inputFile) throws IOException
+    static TsneData readFile(String name) throws IOException
     {
-        InputStream fis = null;
+        InputStream inputStream = null;
         try
         {
+            inputStream = new FileInputStream(name);
+            if (name.toLowerCase().endsWith(".gz"))
+            {
+                inputStream = new GZIPInputStream(inputStream);
+            }
             ArffLoader arffLoader = new ArffLoader();
-            arffLoader.setFile(inputFile.toFile());
+            arffLoader.setSource(inputStream);
             Instances instances = arffLoader.getDataSet();
             return extractData(instances);
         }
         finally
         {
-            if (fis != null)
+            if (inputStream != null)
             {
-                fis.close();
+                inputStream.close();
             }
         }
     }
+    
+    /**
+     * Read the {@link TsneData} from the given resource
+     * 
+     * @param name The resource name
+     * @return The data
+     * @throws IOException If an IO error occurs
+     */
+    static TsneData readResource(String name) throws IOException
+    {
+        InputStream inputStream = null;
+        try
+        {
+            inputStream = WekaUtils.class.getResourceAsStream(name);
+            if (name.toLowerCase().endsWith(".gz"))
+            {
+                inputStream = new GZIPInputStream(inputStream);
+            }
+            ArffLoader arffLoader = new ArffLoader();
+            arffLoader.setSource(inputStream);
+            Instances instances = arffLoader.getDataSet();
+            return extractData(instances);
+        }
+        finally
+        {
+            if (inputStream != null)
+            {
+                inputStream.close();
+            }
+        }
+    }
+    
     
     /**
      * Extract the {@link TsneData} from the given Weka instances

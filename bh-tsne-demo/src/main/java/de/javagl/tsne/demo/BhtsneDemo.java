@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.nio.file.Paths;
+import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -53,7 +53,7 @@ class BhtsneDemo
         JPanel p = new JPanel(new GridLayout(0,1));
 
         
-        String base = "src/main/resources/data/";
+        String base = "/data/";
 
         JPanel p0 = new JPanel(new FlowLayout());
         
@@ -108,15 +108,16 @@ class BhtsneDemo
     }
 
     private JButton createButton(
-        String label, String fileName)
+        String label, String resourceName)
     {
         JButton button = new JButton(label);
-        button.addActionListener(e -> execute(fileName));
-        button.setEnabled(Paths.get(fileName).toFile().exists());
+        button.addActionListener(e -> execute(resourceName));
+        URL resource = BhtsneDemo.class.getResource(resourceName);
+        button.setEnabled(resource != null);
         return button;
     }
 
-    private void execute(String fileName)
+    private void execute(String resourceName)
     {
         double perplexity = 
             ((Number)perplexitySpinner.getValue()).doubleValue();
@@ -139,7 +140,8 @@ class BhtsneDemo
                 labels = null;
 
                 setMessage("Reading...");
-                TsneData data = WekaUtils.read(Paths.get(fileName));
+                
+                TsneData data = WekaUtils.readResource(resourceName);
 
                 Tsne tsne = new Tsne();
                 tsne.setOutputDims(2); // The default
